@@ -1,0 +1,28 @@
+{
+  "name": "marvel-app",
+  "private": true,
+  "workspaces": [
+    "server",
+    "frontend"
+  ],
+  "scripts": {
+    "start": "concurrently \"npm run start:server\" \"npm run start:frontend\"",
+    "start:server": "npm --prefix server run dev",
+    "start:frontend": "npm --prefix frontend run start",
+    "build": "npm run build:server && npm run build:frontend",
+    "build:server": "npm --prefix server run build",
+    "build:frontend": "npm --prefix frontend run build"
+  },
+  "devDependencies": {
+    "concurrently": "^7.0.0"
+  },
+  "dependencies": {
+    "web-vitals": "^4.0.0"
+  },
+  "eslintConfig": {
+    "extends": [
+      "react-app",
+      "react-app/jest"
+    ]
+  }
+}
