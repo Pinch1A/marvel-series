@@ -28,7 +28,6 @@ app.get('/characters', async (req: Request, res: Response) => {
   const { series, story, name, page = 1 } = req.query;
   const offset = (Number(page) - 1) * 20;
 
-  console.log('Fetching characters', { series, story, name, page });
   try {
     const authParams = getMarvelAuthParams();
     let url = `${BASE_URL}/characters?${authParams}&offset=${offset}&limit=20`;
@@ -71,7 +70,6 @@ app.get('/series/:seriesId/characters', async (req: Request, res: Response) => {
   const { page = 1 } = req.query;
   const offset = (Number(page) - 1) * 20;
 
-  console.log('Fetching characters by series', { seriesId, page });
   try {
     const authParams = getMarvelAuthParams();
     const url = `${BASE_URL}/series/${seriesId}/characters?${authParams}&offset=${offset}&limit=20`;

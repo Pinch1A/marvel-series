@@ -17,7 +17,6 @@ const CharacterExplorePage: React.FC = () => {
     try {
       setIsLoading(true);
       const response = await fetchSeries({ titleStartsWith: inputSeries });
-      console.log('response', response);
       const seriesWithAvailableCharacters = response.results.filter((item: Series) => item.characters.available > 0);
       setAllSeries(seriesWithAvailableCharacters);
       setError(null); // Clear any previous errors
